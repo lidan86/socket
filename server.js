@@ -2,12 +2,6 @@ var express = require('express');
 var app = express();
 var server = require('http').createServer(app);
 var io = require('socket.io')().listen(server);
-var cors = require('cors');
-app.use(function(req, res, next) {
-  res.header("Access-Control-Allow-Origin", "*");
-  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-  next();
-});
 
 io.on("connection", function(socket){
     console.log("A new client has connected with the id " + socket.id + "!");
